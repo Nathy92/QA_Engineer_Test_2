@@ -20,6 +20,7 @@ public class AddUserPage extends BaseClass {
 		PageFactory.initElements(rdriver, this);
 	}
 	
+	
 	@FindBy(name="your_name")
 	@CacheLookup
 	WebElement txtName;
