@@ -1,5 +1,6 @@
 package com.qaengineer.pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -74,7 +75,7 @@ public class AddUserPageObject {
 		dropDServiceKind.click();
 	}
 	
-	public void userWhatKindOfBus(String buss) {
+	public void userWhatKindOfBus() {
 		dropDNumEmployees.click();
 	}
 	
@@ -86,6 +87,21 @@ public class AddUserPageObject {
 		txtMessage.sendKeys(userMsg);
 	}
 	
+	public void userClickSubBtn() {
+		btnSubmit.click();
+	}
+	
+	public boolean  userSuccessMsg() {
+		if(txtSuccessMsg.isDisplayed()) {
+			Assert.assertTrue(true);
+			return true;
+		}else {
+			Assert.assertTrue(false);
+			
+		}
+		return false;
+		
+	}
 	
 	
 	

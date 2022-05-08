@@ -1,10 +1,14 @@
 package com.qaengineer.testCases;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -23,9 +27,9 @@ public class BaseClass {
 	public String baseURL = readConfig.getApplicationURL();
 
 	public String fname = "Nkosi";
-	public String email = "fannie@gmail.com";
+	public String email = "testing@gmail.com";
 	public String cellNum = "+27 712353978";
-	public String message = "I am I am I am";
+	public String message = "Testing Testing Testing Testing";
 
 	@Parameters("browser")
 	@BeforeClass
@@ -58,13 +62,13 @@ public class BaseClass {
 		driver.quit();
 	}
 
-	/*
-	 * //Capture Screenshot Method public void captureScreen(WebDriver driver,
-	 * String tname) throws IOException { TakesScreenshot ts = (TakesScreenshot)
-	 * driver; File source = ts.getScreenshotAs(OutputType.FILE); File target = new
-	 * File(System.getProperty("user.dir") + "/Screenshots/" + tname + ".png");
-	 * FileUtils.copyFile(source, target); System.out.println("Screenshot taken"); }
-	 * 
-	 */
+	// Screenshot method
+	public void captureScreen(WebDriver driver, String tname) throws IOException {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		File target = new File(System.getProperty("user.dir") + "/Screenshots/" + tname + ".png");
+		FileUtils.copyFile(source, target);
+		System.out.println("Screenshot taken");
+	}
 
 }
