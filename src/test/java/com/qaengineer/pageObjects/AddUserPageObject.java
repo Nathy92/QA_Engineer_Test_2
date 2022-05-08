@@ -20,7 +20,7 @@ public class AddUserPageObject {
 		PageFactory.initElements(rdriver, this);
 	}
 	
-	
+	//ELements or ID's
 	@FindBy(name="your_name")
 	
 	WebElement txtName;
@@ -33,11 +33,11 @@ public class AddUserPageObject {
 	@CacheLookup
 	WebElement txtMobileNo;
 	
-	@FindBy(name="numemployees")
+	@FindBy(xpath="//*[@id=\"numemployees-c2e387f9-4bd8-496f-ab2a-81fbbc31712a\"]/option[2]")
 	@CacheLookup
 	WebElement dropDNumEmployees;
 	
-	@FindBy(name = "what_kind_of_problem_is_your_business_currently_facing_")
+	@FindBy(xpath = "//*[@id=\"what_kind_of_problem_is_your_business_currently_facing_-c2e387f9-4bd8-496f-ab2a-81fbbc31712a\"]/option[2]")
 	@CacheLookup
 	WebElement dropDServiceKind;
 	
@@ -70,19 +70,22 @@ public class AddUserPageObject {
 		txtMobileNo.sendKeys(mobileNum);
 	}
 	
+	public void userNumEmployees() {
+		dropDServiceKind.click();
+	}
 	
-	/*
-	 * 1. Do Company size
-	 * 2. Service
-	 */
+	public void userWhatKindOfBus(String buss) {
+		dropDNumEmployees.click();
+	}
+	
+	public void userClickCons() {
+		checkLegalCons.click();
+	}
+	
 	public void  userMessage(String userMsg) {
 		txtMessage.sendKeys(userMsg);
 	}
 	
-	
-	public void clickAgrmnt() {
-		
-	}
 	
 	
 	
