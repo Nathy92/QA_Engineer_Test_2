@@ -7,26 +7,26 @@ import org.openqa.selenium.support.FindBy;
 
 import org.openqa.selenium.support.PageFactory;
 
-import com.qaengineer.testCases.BaseClass;
 
-public class AddUserPage extends BaseClass {
+
+public class AddUserPageObject {
 	
 	//Declare webdriver variable
 	WebDriver ldriver;
 	
 	//Initialize webdriver
-	public AddUserPage(WebDriver rdriver) {
+	public AddUserPageObject(WebDriver rdriver) {
 		ldriver = rdriver;
 		PageFactory.initElements(rdriver, this);
 	}
 	
 	
 	@FindBy(name="your_name")
-	@CacheLookup
+	
 	WebElement txtName;
 	
-	@FindBy(name= "email")
-	@CacheLookup
+	@FindBy(name="email")
+	
 	WebElement txtEmail;
 	
 	@FindBy(name="mobilephone")
@@ -53,16 +53,21 @@ public class AddUserPage extends BaseClass {
 	@CacheLookup
 	WebElement btnSubmit;
 	
+	@FindBy(xpath="//h2[@class='section-title']")
+	@CacheLookup
+	WebElement txtSuccessMsg;
+	
+	
 	public void  userFname(String fName) {
-		txtName.sendKeys("Nkosinathi");
+		txtName.sendKeys(fName);
 	}
 	
 	public void  userEmail(String email) {
-		txtEmail.sendKeys("jacob@gmail.com");
+		txtEmail.sendKeys(email);
 	}
 	
 	public void  userMobileNum(String mobileNum) {
-		txtMobileNo.sendKeys("+27 712353978");
+		txtMobileNo.sendKeys(mobileNum);
 	}
 	
 	
@@ -71,7 +76,7 @@ public class AddUserPage extends BaseClass {
 	 * 2. Service
 	 */
 	public void  userMessage(String userMsg) {
-		txtMessage.sendKeys("My Enquiry My Enquiry");
+		txtMessage.sendKeys(userMsg);
 	}
 	
 	
