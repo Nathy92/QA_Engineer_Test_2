@@ -5,7 +5,7 @@ package com.qaengineer.testCases;
 
 import java.io.IOException;
 
-
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qaengineer.pageObjects.AddUserPageObject;
@@ -17,7 +17,7 @@ public class AddUserTest extends BaseClass {
 		
 		
 		driver.get(baseURL);
-		logger.info("URL Opened");
+	    logger.info("URL Opened");
 		
 		AddUserPageObject addUserPageObj = new AddUserPageObject(driver);
 		logger.info("Entering User Details");
@@ -31,14 +31,18 @@ public class AddUserTest extends BaseClass {
 		addUserPageObj.userClickSubBtn(); 
 		logger.info("User Details Captured");
 		
-		if(addUserPageObj.userSuccessMsg()) {
-			logger.info("Adding user successful");
+		//Check if Success page Title is visible
+		if(driver.getTitle().equals("Submission Contact Us - SovTech Custom Software")) {
+			Assert.assertTrue(true);
+			logger.info("Adding User Test Passed");
+			
 		}else {
-			captureScreen(driver,"AddUser");
-			logger.info("Adding user Failed");
+			captureScreen(driver, "AddUser");
+			Assert.assertFalse(false);
+			logger.info("Adding User Test Failed");
 		}
-
 		
+	
 	}
 	
 

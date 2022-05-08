@@ -35,22 +35,28 @@ public class BaseClass {
 	@BeforeClass
 	public void setUp(String br) {
 
-		Logger logger = Logger.getLogger("QA Engineer Test");
+		logger = Logger.getLogger("QA Engineer Test");
 		PropertyConfigurator.configure("Log4j.properties");
-
+		
+		
+		
 		// Get method's from ReadConfig Class
 		if (br.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", readConfig.getChromePath());
 			driver = new ChromeDriver();
+			logger.info("Chrome Driver Launched");
 
 		} else if (br.equals("fireFox")) {
 			System.setProperty("webdriver.gecko.driver", readConfig.getGeckoPath());
 			driver = new FirefoxDriver();
+			logger.info("FireFox Driver Launched");
 
 		} else if (br.equals("msEdge")) {
 			System.setProperty("webdriver.edge.driver", readConfig.getMsEdgePath());
 			driver = new EdgeDriver();
+			logger.info("IE Driver Launched");
 		}
+		
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();

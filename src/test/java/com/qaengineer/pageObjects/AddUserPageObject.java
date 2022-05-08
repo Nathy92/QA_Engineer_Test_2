@@ -54,10 +54,6 @@ public class AddUserPageObject {
 	@CacheLookup
 	WebElement btnSubmit;
 	
-	@FindBy(xpath="//h2[@class='section-title']")
-	@CacheLookup
-	WebElement txtSuccessMsg;
-	
 	
 	public void  userFname(String fName) {
 		txtName.sendKeys(fName);
@@ -90,31 +86,6 @@ public class AddUserPageObject {
 	public void userClickSubBtn() {
 		btnSubmit.click();
 	}
-	
-	public boolean  userSuccessMsg() {
-		if(txtSuccessMsg.isDisplayed()) {
-			Assert.assertTrue(true);
-			return true;
-		}else {
-			Assert.assertTrue(false);
-			
-		}
-		return false;
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 }

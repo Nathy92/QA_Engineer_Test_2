@@ -27,16 +27,6 @@ public class ReadConfig {
 		return url;
 	}
 
-	public String getUsername() {
-		String username = pro.getProperty("username");
-		return username;
-	}
-
-	public String getPassword() {
-		String password = pro.getProperty("password");
-		return password;
-	}
-
 	//Get Driver paths : chrome, fireFox and i.e
 	public String getChromePath() {
 		String chromepath = pro.getProperty("chromepath");
