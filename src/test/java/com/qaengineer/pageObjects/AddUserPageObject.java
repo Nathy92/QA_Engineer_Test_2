@@ -8,7 +8,10 @@ import org.openqa.selenium.support.FindBy;
 
 import org.openqa.selenium.support.PageFactory;
 
-
+/*
+ * NB: Elements in the form are not accessible by either, css,name,xpath 
+ * They might be a problem with the page
+ */
 
 public class AddUserPageObject {
 	
@@ -21,13 +24,13 @@ public class AddUserPageObject {
 		PageFactory.initElements(rdriver, this);
 	}
 	
-	//ELements or ID's
+	//Elements or ID's
 	@FindBy(name="your_name")
-	
+	@CacheLookup
 	WebElement txtName;
 	
 	@FindBy(name="email")
-	
+	@CacheLookup
 	WebElement txtEmail;
 	
 	@FindBy(name="mobilephone")

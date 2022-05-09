@@ -38,8 +38,6 @@ public class BaseClass {
 		logger = Logger.getLogger("QA Engineer Test");
 		PropertyConfigurator.configure("Log4j.properties");
 		
-		
-		
 		// Get method's from ReadConfig Class
 		if (br.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", readConfig.getChromePath());

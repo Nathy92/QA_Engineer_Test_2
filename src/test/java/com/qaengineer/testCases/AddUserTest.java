@@ -37,7 +37,7 @@ public class AddUserTest extends BaseClass {
 			logger.info("Adding User Test Passed");
 			
 		}else {
-			captureScreen(driver, "AddUser");
+			captureScreen(driver,"AddUser");
 			Assert.assertFalse(false);
 			logger.info("Adding User Test Failed");
 		}
